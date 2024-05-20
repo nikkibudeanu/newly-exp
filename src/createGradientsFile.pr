@@ -2,7 +2,7 @@ const gradients = {
 {[ let brand = ds.currentBrand() /]}
 {[ for token in ds.tokensByType("Gradient", brand.id) ]}
 {[ let tokenGroup = ds.tokenGroupContainingTokenId(token.id) /]}
-{[ if tokenGroup.path.contains(brand.name.replacing(" ", "").lowercased())  ]}
+{[ if tokenGroup.path.contains(brand.name.replacing(" ", "").uppercased())  ]}
 {[ inject "getKeyValuePair" context token /]}
 {[/]}
 {[/]}
