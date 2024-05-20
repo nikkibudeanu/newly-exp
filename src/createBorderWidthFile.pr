@@ -1,5 +1,6 @@
 const borderWidth = {
-  {[ inject "getMeasureProperty" context { "propertyKey": "borderWidth" } | uppercased ]}
+  // Assuming getMeasureProperty is a function that returns the desired property value
+  borderWidth: getMeasureProperty(context, { propertyKey: "borderWidth" }).toUpperCase()
 };
 
 export default borderWidth;
