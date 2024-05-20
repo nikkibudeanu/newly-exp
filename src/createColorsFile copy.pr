@@ -1,0 +1,17 @@
+const colors = {
+    brand: {
+{[ let brand = ds.currentBrand() /]}
+
+{[ for token in ds.tokensByType("Color", brand.id) ]}
+{[ let tokenGroup = ds.tokenGroupContainingTokenId(token.id) /]}
+{[ if tokenGroup.path.contains(brand.name.replacing(" ", "").uppercased()) ]}
+{[ inject "getKeyValuePair" context token /]}
+{[/]}
+{[ if tokenGroup.path.contains("semantic")  ]}
+{[ inject "getKeyValuePair" context token /]}
+{[/]}
+{[/]}
+ }
+};
+
+export default colors;
