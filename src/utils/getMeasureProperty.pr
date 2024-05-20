@@ -1,0 +1,8 @@
+{[ let brand = ds.currentBrand() /]}
+{[ for token in ds.tokensByType("Measure", brand.id) ]}
+{[ let tokenGroup = ds.tokenGroupContainingTokenId(token.id) /]}
+{[ let property = getProperty( tokenGroup.path, context.propertyKey) /]}
+ {[ if property.contains(context.propertyKey)  ]}
+ "{{ token.name.lowercased() }}": "{[ inject "getValue" context token /]}",
+ {[/]}
+{[/]}

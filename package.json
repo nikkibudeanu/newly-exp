@@ -1,0 +1,26 @@
+{
+  "name": "design-system-react-exporter",
+  "version": "1.0.0",
+  "description": "Exports the design system tokens for React",
+  "main": "exporter.json",
+  "scripts": {
+    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode=production  npx prettier . --write",
+    "watch": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode=production --watch  npx prettier . --write",
+    "watch:dev": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode=development --watch  npx prettier . --write",
+    "eslint": "npx eslint \"src/**/*.{ts,tsx}\" --ignore-pattern \"src/**/*.d.ts\" --fix --max-warnings 0",
+    "lint": "npm run eslint --fix"
+  },
+  "author": "NewDayCards",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "globals": "^15.0.0",
+    "prettier": "3.2.5",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.9",
+    "typescript-eslint": "^7.5.0",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

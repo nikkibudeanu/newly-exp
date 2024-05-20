@@ -1,0 +1,14 @@
+{[ let brand = ds.currentBrand() /]}
+const fontSize = {
+{[ for token in ds.tokensByType("Measure", brand.id) ]}
+  {[ let tokenGroup = ds.tokenGroupContainingTokenId(token.id) /]}
+  {[ let property = getProperty( tokenGroup.path, "fontSize") /]}
+  {[ if property.contains("fontSize") ]}
+  {[ if tokenGroup.name.equals("web") ]}
+  "{{ token.name.lowercased() }}": "{[ inject "getValue" context token /]}",
+  {[/]}
+  {[/]}
+{[/]}
+};
+
+export default fontSize;

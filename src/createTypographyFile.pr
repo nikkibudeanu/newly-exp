@@ -1,0 +1,14 @@
+const typography = {
+{[ let brand = ds.currentBrand() /]}
+{[ const allTokens = ds.tokensByType("Typography", brand.id) /]}
+{[ for token in allTokens ]}
+{[ let tokenGroup = ds.tokenGroupContainingTokenId(token.id) /]}
+{[ if tokenGroup.path.contains(brand.name.replacing(" ", "").lowercased())  ]}
+{[ if !token.referencedToken ]}
+{[ inject "getTokenClass" context { "token": token, "allTokens": allTokens } /]}
+{[/]}
+{[/]}
+{[/]}
+};
+
+export default typography;

@@ -1,0 +1,19 @@
+import borderWidth from './borderWidth';
+import colors from './colors';
+import fontSize from './fontSize';
+import gradients from './gradients';
+import radii from './radii';
+import spacing from './spacing';
+import textStyles from './typography';
+
+const theme = {
+ borderWidth,
+ colors,
+ fontSize,
+ gradients,
+ radii,
+ spacing,
+ textStyles
+};
+
+export default theme;

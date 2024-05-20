@@ -1,0 +1,103 @@
+{*
+
+Injectable blueprint that represents Typography token as CSS string. 
+Note that this only converts the value, actual name is provided somewhere else
+
+
+Source data: Shadow Value (https://developers.supernova.io/design-system-data/tokens/typographies)
+Note: Value is passed as `context` property because it is injected
+
+{
+  "id": string
+  "name": string
+  "description": string
+  "tokenType": "Typography"
+  "origin": ItemOrigin | null
+  "value": {
+    "font": {
+      "family": string,
+      "subfamily": string
+      "referencedToken": Font | null
+    },
+    "fontSize": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "letterSpacing": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "lineHeight": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "paragraphIndent": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "paragraphSpacing": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "textDecoration": "None" | "Underline" | "Strikethrough"
+    "textCase": "Original" | "Upper" | "Lower" | "Camel" | "SmallCaps"
+    "referencedToken": Typography | null
+  }
+}
+
+
+Rendered as:
+
+[text]
+
+*}
+{[ let fontStyle = "normal" /]}
+{[ if ds.isFontItalic(context.font) ]}
+  {[ fontStyle = "italic" /]}
+{[/]}
+{[ let textCaseCss = "" /]}
+{[ switch context.textCase ]}
+    {[ case "Upper"]}
+        {[ textCaseCss = "uppercase"/]}
+    {[ case "Lower"]}
+        {[ textCaseCss = "lowercase"/]}
+    {[ case "Camel"]}
+        {[ textCaseCss = "capitalize"/]}
+{[/]}
+{[ let textDecoration = "" /]}
+{[ switch context.textDecoration ]}
+    {[ case "Underline"]}
+        {[ textDecoration = "underline"/]}
+    {[ case "Strikethrough"]}
+        {[ textDecoration = "line-through"/]}
+{[/]}
+fontFamily: "{{ context.font.family }}",
+fontStyle: "{{ fontStyle }}",
+fontWeight: "{{ ds.fontWeight(context.font) }}",
+fontSize: "{[ inject "getMeasure" context context.fontSize /]}",
+{[ if context.lineHeight ]}
+lineHeight: "{[ inject "getMeasure" context context.lineHeight /]}",
+{[/]}
+letterSpacing: "{[if (context.letterSpacing.unit === "Percent") ]}
+{{ (context.letterSpacing.measure / 100).rounded(2) }}em;
+{[ else ]}
+{[ inject "getMeasure" context context.letterSpacing /]}",
+{[/]}
+textIndent: "{[ inject "getMeasure" context context.paragraphIndent /]}",
+{[ if textDecoration ]}
+textDecoration: "{{ textDecoration }}",
+{[/]}
+{[ if textCaseCss ]}
+textTransform: "{{ textCaseCss }}",
+{[/]}
+{[ if (context.textCase === "SmallCaps") ]}
+fontVariant: "small-caps",
+{[/]}
+{[ if context.paragraphSpacing ]}
+marginBottom: "{[ inject "getMeasure" context context.paragraphSpacing /]}",
+{[/]}

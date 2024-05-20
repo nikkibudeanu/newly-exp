@@ -1,0 +1,13 @@
+{*
+Generate all border tokens as named variables.
+Tokens are named by their group path and then name, 
+and their value rendered using `getBorder` blueprint
+*}
+{[ let brand = ds.currentBrand() /]}
+{[ for token in ds.tokensByType("Measure", brand.id) ]}
+{[ let tokenGroup = ds.tokenGroupContainingTokenId(token.id) /]}
+{[ let property = getProperty( tokenGroup.path, context.propertyKey) /]}
+      {[ if tokenGroup.name.equals(context.subProperty) ]}
+      "{{ token.name.lowercased() }}": "{[ inject "getValue" context token /]}",
+      {[/]}
+{[/]}

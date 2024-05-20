@@ -1,0 +1,21 @@
+{
+  "id": "Design.System.Exporter.For.Components.Library",
+  "name": "Components Library - Design System Exporter",
+  "description": "Typescript styles exporter for the NewDay Components Library built on top of Chakra-UI",
+  "author": "Claudia Meneghesso",
+  "organization": "NewDayCards",
+  "homepage": "https://app.supernova.io/21777-new-day",
+  "source_dir": "src",
+  "version": "1.0.0",
+  "usesBrands": true,
+  "config": {
+    "sources": "sources.json",
+    "output": "output.json",
+    "js": "src/utils/utils.ts"
+  },
+  "engines": {
+    "pulsar": "1.0.0",
+    "supernova": "1.0.0"
+  },
+  "tags": ["design", "system", "exporter", "components", "library"]
+}

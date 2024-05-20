@@ -1,0 +1,5 @@
+const borderWidth = {
+{[ inject "getMeasureProperty" context { "propertyKey": "borderWidth" } /]}
+};
+
+export default borderWidth;

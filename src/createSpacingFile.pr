@@ -1,0 +1,12 @@
+const spacing = {
+  space: {
+    vertical: {
+    {[ inject "getMeasureSubProperty" context { "propertyKey": "spacing", "subProperty": "vertical" } /]}
+    },
+    horizontal:{
+    {[ inject "getMeasureSubProperty" context { "propertyKey": "spacing", "subProperty": "horizontal" } /]}
+    },
+  },
+};
+
+export default spacing;

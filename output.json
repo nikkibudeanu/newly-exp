@@ -1,0 +1,36 @@
+{
+  "blueprints": [
+    {
+      "invoke": "createColorsFile.pr",
+      "write_to": "colors.ts"
+    },
+    {
+      "invoke": "createBorderWidthFile.pr",
+      "write_to": "borderWidth.ts"
+    },
+    {
+      "invoke": "createFontSizeFile.pr",
+      "write_to": "fontSize.ts"
+    },
+    {
+      "invoke": "createRadiiFile.pr",
+      "write_to": "radii.ts"
+    },
+    {
+      "invoke": "createGradientsFile.pr",
+      "write_to": "gradients.ts"
+    },
+    {
+      "invoke": "createSpacingFile.pr",
+      "write_to": "spacing.ts"
+    },
+    {
+      "invoke": "createTypographyFile.pr",
+      "write_to": "typography.ts"
+    },
+    {
+      "invoke": "createThemeFile.pr",
+      "write_to": "index.ts"
+    }
+  ]
+}
